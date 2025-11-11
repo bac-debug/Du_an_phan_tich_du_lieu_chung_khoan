@@ -54,16 +54,16 @@ Cấu trúc chính:
 
 <p align="center">
     <em>Giao diện chính - Hiển thị biểu đồ giá, chỉ báo kỹ thuật và xu hướng</em><br/>
-    <img width="1401" height="842" alt="Main UI" src="[Screenshot 2025-11-11 215609.png]" />
+    <img width="1401" height="842" alt="Main UI" src="Screenshot 2025-11-11 215609.png" />
 </p>
 <p align="center">
     <em>Giao diện dự báo ML (XGBoost) hiển thị trên biểu đồ</em><br/>
-    <img width="1401" height="842" alt="ML Forecast" src="[Screenshot 2025-11-11 215624.png]" />
+    <img width="1401" height="842" alt="ML Forecast" src="Screenshot 2025-11-11 215624.png" />
 </p>
 
 <p align="center">
     <em>Kết quả phân tích & dự báo đa khung thời gian từ Gemini AI</em><br/>
-    <img width="1387" height="819" alt="Gemini Analysis" src="[Screenshot 2025-11-11 215718.png]" />
+    <img width="1387" height="819" alt="Gemini Analysis" src="Screenshot 2025-11-11 215718.png" />
 </p>
 
 ---
