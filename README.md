@@ -21,109 +21,101 @@ AI Tạo Sinh (Gemini) và Học Máy (XGBoost)
 
 </div>
 
+# 📈 Hệ Thống Phân Tích và Dự Báo Chứng Khoán (AI + ML)
+
 ## 📖 1. Giới thiệu hệ thống
-Đây là một ứng dụng Client-Server viết bằng Java Socket cho phép:
+Đây là một ứng dụng web Phân tích Kỹ thuật và Dự báo Chứng khoán, được xây dựng bằng Streamlit và Python. Hệ thống kết hợp cả Học máy (ML) truyền thống và AI tạo sinh (Generative AI) để cung cấp cái nhìn đa chiều cho nhà đầu tư.
 
-    - Người dùng (User) đăng ký, đăng nhập, xem danh sách sách, mượn sách.
-
-    - Quản trị viên (Admin) thêm, sửa, xóa sách và duyệt yêu cầu mượn.
-
-    - Server lưu dữ liệu vào file data.txt để quản lý người dùng, sách và danh sách mượn.
+- **Người dùng (Nhà đầu tư):** Có thể xem biểu đồ giá, các chỉ báo kỹ thuật, nhận dự báo giá ngắn hạn từ mô hình XGBoost và nhận các phân tích chuyên sâu, đa khung thời gian từ Google Gemini AI.
+- **Quy trình Huấn luyện:** Một kịch bản (script) offline được dùng để huấn luyện các mô hình XGBoost cho từng mã cổ phiếu và lưu lại.
+- **Giao diện Web:** Ứng dụng Streamlit tải các mô hình đã huấn luyện, đồng thời kết nối trực tiếp đến các API (yfinance, Gemini) để cung cấp dữ liệu và phân tích thời gian thực.
 
 Cấu trúc chính:
 
-    - Server.java: Xử lý kết nối, lưu dữ liệu, quản lý người dùng và sách.
-
-    - ClientUser.java: Giao diện console cho người dùng.
-
-    - ClientAdmin.java: Giao diện console cho quản trị viên.
-
+- **`app_streamlit.py`**: Giao diện web chính cho người dùng.
+- **`train_model.py`**: Kịch bản offline để huấn luyện mô hình ML.
+- **`gemini_client.py`**: Client xử lý tất cả logic gọi và phân tích API Gemini.
+- **`ml_model.py`**: Chứa logic huấn luyện (XGBoost) và dự báo.
+- **`feature_engineering.py`**: Mô-đun tạo các đặc trưng/chỉ báo kỹ thuật.
 
 ## 🔧 2. Các công nghệ được sử dụng
-  
-- **☕ Java SE 8+**
 
-- **🌐 Java Socket (TCP/IP)**
+- **🐍 Python 3.9+**
+- **🌐 Streamlit** (Dựng giao diện web)
+- **🧠 Google Gemini API** (Phân tích & Dự báo AI)
+- **📈 XGBoost** (Huấn luyện & Dự báo ML)
+- **📊 Pandas** & **Numpy** (Xử lý dữ liệu)
+- **💹 Plotly** (Vẽ biểu đồ tương tác)
+- **🏦 yfinance** (Tải dữ liệu chứng khoán)
+- **🛠️ Scikit-learn** & **Joblib** (Hỗ trợ ML & Lưu trữ mô hình)
+- **🖥️ VS Code** (Khuyến khích)
 
-- **💾 File I/O (đọc/ghi dữ liệu vào data.txt)**
-
-- **🖥 Eclipse IDE**
 ## 🚀 3. Một số hình ảnh hệ thống
+
 <p align="center">
-    <em>Giao diện khi kết nối thành công với Server</em><br/>
-    <img width="1401" height="842" alt="Auto Send" src="Screenshot 2025-09-18 082422.png" />
+    <em>Giao diện chính - Hiển thị biểu đồ giá, chỉ báo kỹ thuật và xu hướng</em><br/>
+    <img width="1401" height="842" alt="Main UI" src="[ĐƯỜNG_DẪN_ĐẾN_ẢNH_CỦA_BẠN]" />
 </p>
 <p align="center">
-    <em>Giao diện khi người dùng đăng nhập</em><br/>
-    <img width="1401" height="842" alt="Auto Send" src="Screenshot 2025-09-25 074950.png" />
+    <em>Giao diện dự báo ML (XGBoost) hiển thị trên biểu đồ</em><br/>
+    <img width="1401" height="842" alt="ML Forecast" src="[ĐƯỜNG_DẪN_ĐẾN_ẢNH_CỦA_BẠN]" />
 </p>
 
 <p align="center">
-    <em>Giao diện người dùng</em><br/>
-    <img width="1387" height="819" alt="UI Main" src="Screenshot 2025-09-25 100808.png" />
-</p>
-
-<p align="center">
-    <em>Giao diện Admin</em><br/>
-    <img width="1401" height="842" alt="Auto Send" src="Screenshot 2025-09-18 110641.png" />
+    <em>Kết quả phân tích & dự báo đa khung thời gian từ Gemini AI</em><br/>
+    <img width="1387" height="819" alt="Gemini Analysis" src="[ĐƯỜNG_DẪN_ĐẾN_ẢNH_CỦA_BẠN]" />
 </p>
 
 ---
+
 ## ⚙️ 4. Các bước cài đặt
+
 ### 4.1. Yêu cầu hệ thống
-```
-    - Cài đặt Java JDK 8+ (kiểm tra bằng lệnh java -version và javac -version).
 
-    - Cài đặt Git để clone repository.
+- Cài đặt Python 3.9 trở lên (kiểm tra bằng lệnh `python --version`).
+- Cài đặt Git để clone repository.
+- Cài đặt pip để quản lý thư viện (thường đi kèm Python).
+- (Khuyến khích) Cài đặt VS Code hoặc PyCharm để dễ quản lý project.
 
-    - (Khuyến khích) Cài đặt Eclipse IDE hoặc IntelliJ IDEA để dễ quản lý project.
-```
-### 4.2. Cấu trúc thư mục
-```
-Du_an_quan_li_thu_vien/
-    │── src/
-    │   ├── Server/
-    │   │   └── Server.java
-    │   └── user/
-    │       ├── ClientAdmin.java
-    │       └── ClientUser.java
-    │── data.txt
 
-```
+### 4.2. Cài đặt thư viện
 
-### 4.3. Chạy Server
-```
-    - Vào thư mục src/Server/Server.java.
+1.  Clone repository về máy:
+    ```bash
+    git clone [ĐƯỜNG_DẪN_REPO_CỦA_BẠN]
+    cd Du_an_phan_tich_chung_khoan
+    ```
 
-    - Chuột phải → Run As → Java Application.
+2.  Cài đặt tất cả các thư viện cần thiết:
+    ```bash
+    pip install -r requirements.txt
+    ```
+    *(Lưu ý: Bạn cần tạo tệp `requirements.txt` bằng lệnh `pip freeze > requirements.txt`)*
 
-    - Server đã sẵn sàng lắng nghe kết nối từ client.
-```
-### 4.4. Chạy ClientUser (người dùng)
+### 4.3. Bước 1: Huấn luyện mô hình (Offline)
 
-```
-    - Vào thư mục src/user/ClientUser.java.
+- Chạy file `train_model.py` để huấn luyện các mô hình XGBoost.
+- Các mô hình sẽ được lưu vào thư mục `/models/`.
+- (Bạn chỉ cần chạy bước này một lần, hoặc mỗi khi muốn cập nhật mô hình).
 
-    - Chuột phải → Run As → Java Application.
-```
-### 4.5. Chạy ClientAdmin (quản trị viên)
-```
-    - Vào thư mục src/user/ClientAdmin.java.
+### 4.4. Bước 2: Chạy Ứng dụng Web
 
-    - Chuột phải → Run As → Java Application.
-```
+1.  Mở Terminal (hoặc Command Prompt) và di chuyển đến thư mục gốc của dự án.
+2.  Gõ lệnh sau và nhấn Enter:
+    ```bash
+    streamlit run app_streamlit.py
+    ```
+3.  Mở trình duyệt và truy cập vào địa chỉ (thường là `http://localhost:8501`).
+4.  Nhập API Key của Gemini ở thanh bên và bắt đầu sử dụng.
 
 ## 📝 5. Liên hệ
 
-- Khoa: Công nghệ thông tin - Trường Đại học Đại Nam
-- Lớp: CNTT 16-04
-- Tôi: Nguyễn Văn Bắc
-- Email: **nguyenbacdz04@gmail.com**  
+- **Khoa:** Công nghệ thông tin - Trường Đại học Đại Nam
+- **Lớp:** CNTT 16-04
+- **Tôi:** Nguyễn Văn Bắc
+- **Email:** nguyenbacdz04@gmail.com
 
 ---
-
-<p align="center">
-    ✍️ <em>README này được thiết kế bởi Bac Nguyen</em>
-</p>
+*✍️ README này được thiết kế bởi Bac Nguyen*
 
     
